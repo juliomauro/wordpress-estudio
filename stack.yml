@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  WP-EstudioLizard:
+    image: wordpress
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: db-EstudioLizard
+      WORDPRESS_DB_USER: user-estudiolizard
+      WORDPRESS_DB_PASSWORD: pass-estudiolizard2019
+      WORDPRESS_DB_NAME: db-estudiolizard
+
+  db-EstudioLizard:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: db-estudiolizard
+      MYSQL_USER: user-estudiolizard
+      MYSQL_PASSWORD: pass-estudiolizard2019
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
